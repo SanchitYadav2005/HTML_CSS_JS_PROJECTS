@@ -7,9 +7,18 @@
     <title>Home Page</title>
 </head>
 <body>
-    <h1>This is home page</h1>
-    <% for(let student of students){ %>
-        <h2><%= student.name %> </h2>
-    <% } %>  
+    <h1>All Students</h1>
+    <ul>
+        <% for(let student of students){ %>
+            <li>
+                <a href="">
+                    <%= student.name %> 
+                </a>
+            </li>
+        <% } %> 
+    </ul> 
+    <form action="/students/new">
+        <button>Add Student</button>
+    </form>
 </body>
 </html>

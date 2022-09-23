@@ -18,14 +18,23 @@ mongoose.connect('mongodb://localhost:27017/studentDb')
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'));
+app.use(express.urlencoded({extended: true}))
 
+const subjects = ['english', 'math', 'physics', 'chemistry', 'hindi'];
 
 
 app.get('/students', async function(req,res){
     const students = await Student.find({});
     res.render('index', {students});
 });
-
+app.get('/students/new', function(req,res){
+    res.render('new', {subjects});
+});
+app.post('/students', async function(req,res){
+    const addStudent = new Student(req.body);
+    await addStudent.save();
+    res.redirect('/students')
+})
 app.listen(port, function(err){
     if(err){
         console.log("not working");

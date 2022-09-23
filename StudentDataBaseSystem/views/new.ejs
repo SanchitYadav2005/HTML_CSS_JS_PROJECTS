@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Student</title>
+</head>
+<body>
+    <h1>add new student</h1>
+    <form action="/students" method="POST">
+        <label for="name">
+            enter name:
+            <input type="text" id="name" name="name">
+        </label>
+        <label for="class">
+            class:
+            <input type="number" id="number" name="number">
+        </label>
+        <select name="subjects" id="subjects">
+            <% for(let subject of subjects){ %>
+                <option value="<%= subject%> "><%= subject %> </option>
+            <% } %>  
+        </select>
+        <button>Add</button>
+    </form>
+    <form action="/students">
+        <button>Back</button>
+    </form>
+</body>
+</html>

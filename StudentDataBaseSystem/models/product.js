@@ -10,9 +10,10 @@ const Schema = mongoose.Schema(
             type: Number,
             requried: true
         },
-        subjects:{
+        subject:{
             type: String,
-            enum: ['english', 'math', 'physics', 'chemistry', 'hindi']
+            enum: ['english', 'math', 'physics', 'chemistry', 'hindi'],
+            default: 'math'
         }
     }
 );
