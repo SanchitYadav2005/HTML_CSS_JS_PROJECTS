@@ -12,8 +12,7 @@ const Schema = mongoose.Schema(
         },
         subject:{
             type: String,
-            enum: ['english', 'math', 'physics', 'chemistry', 'hindi'],
-            default: 'math'
+            enum: ['math', 'bilogy', 'commerce']
         }
     }
 );

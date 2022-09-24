@@ -20,7 +20,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'));
 app.use(express.urlencoded({extended: true}))
 
-const subjects = ['english', 'math', 'physics', 'chemistry', 'hindi'];
+const subjects = ['math', 'biology', 'commerce'];
 
 
 app.get('/students', async function(req,res){
@@ -38,7 +38,7 @@ app.post('/students', async function(req,res){
 app.get('/students/:id', async function(req,res){
     const {id} = req.params;
     const foundStudent = await Student.findById(id);
-    res.render('details', {foundStudent});
+    res.render('details', {foundStudent, subjects});
 });
 app.listen(port, function(err){
     if(err){
