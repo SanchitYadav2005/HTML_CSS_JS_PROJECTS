@@ -34,7 +34,12 @@ app.post('/students', async function(req,res){
     const addStudent = new Student(req.body);
     await addStudent.save();
     res.redirect('/students')
-})
+});
+app.get('/students/:id', async function(req,res){
+    const {id} = req.params;
+    const foundStudent = await Student.findById(id);
+    res.render('details', {foundStudent});
+});
 app.listen(port, function(err){
     if(err){
         console.log("not working");
